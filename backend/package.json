@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "NODE_ENV=production",
-    "lint": "eslint **/*.js",
+    "lint": "eslint server.js lib/*.js models/*.js routes/*.js",
     "format": "prettier --write **/*.js"
   },
   "license": "MIT",
