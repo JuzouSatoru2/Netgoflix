@@ -7,15 +7,17 @@
 - [ ] Favourites page (Handle favourites via localstorage)
 - [ ] User (Register + Login page)
 
-- [ ] Searchfunktion (+Search results page)
+- [ ] Searchfunction (+Search results page)
+- [ ] Nprogress
+- [ ] Styles
 
 ## Backend
 
-- [ ] REST API (CRUD movies)
-- [ ] Datenbank (Handles CRUD of movies + User)
-- [ ] Genres API
-- [ ] User (Register + Login) API
+- [X] REST API (CRUD movies)
+- [X] Datenbank (Handles CRUD of movies + User)
+- [X] Genres API
+- [X] User (Register + Login) API
 
 ## Else
 
-- [ ] Github workflow
+- [X] Github workflow
