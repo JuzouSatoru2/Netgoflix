@@ -8,7 +8,8 @@
 - [ ] User (Register + Login page)
 
 - [ ] Searchfunction (+Search results page)
-- [ ] Nprogress
+- [X] Nprogress
+- [ ] Meta information
 - [ ] Styles
 
 ## Backend
