@@ -25,6 +25,17 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+      - name: Cache node modules
+
+    uses: actions/cache@v2
+    with:
+      path: ~/.next
+      key: ${{ runner.os }}-build-${{ cache-next-build }}-${{ hashFiles('**/yarn.json') }}
+      restore-keys: |
+        ${{ runner.os }}-build-${{ cache-next-build }}-
+        ${{ runner.os }}-build-
+        ${{ runner.os }}-
+
     - run: npm install -g yarn
     - run: yarn
     - run: yarn format

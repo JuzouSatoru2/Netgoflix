@@ -10,12 +10,7 @@
     "format": "prettier --write components/** pages/**"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^1.0.0",
-    "@chakra-ui/react": "^1.0.0",
-    "@emotion/react": "^11.0.0",
-    "@emotion/styled": "^11.0.0",
     "axios": "^0.21.0",
-    "framer-motion": "^2.9.4",
     "js-cookie": "^2.2.1",
     "next": "latest",
     "nprogress": "^0.2.0",

@@ -4,7 +4,7 @@
 
 ## Architecture
 
-Frontend: NextJs + ChakraUI
+Frontend: NextJs + Bootstrap
 
 Backend: Express + Mongoose
 
