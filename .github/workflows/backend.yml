@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+defaults:
+  run:
+    working-directory: backend
+
 jobs:
   lint-and-format:
 
@@ -21,7 +25,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - workking-directory: ./backend
     - run: npm install -g yarn
     - run: yarn
     - run: yarn format
