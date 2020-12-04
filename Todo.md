@@ -9,7 +9,7 @@
 
 - [ ] Searchfunction (+Search results page)
 - [X] Nprogress
-- [ ] Meta information
+- [X] Meta information
 - [ ] Styles
 
 ## Backend
