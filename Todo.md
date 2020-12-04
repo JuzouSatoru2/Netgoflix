@@ -7,7 +7,7 @@
 - [ ] Favourites page (Handle favourites via localstorage)
 - [ ] User (Register + Login page)
 
-- [ ] Searchfunction (+Search results page)
+- [X] Searchfunction (+Search results page)
 - [X] Nprogress
 - [X] Meta information
 - [ ] Styles

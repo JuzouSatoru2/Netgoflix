@@ -1,6 +1,12 @@
+import { useState } from 'react';
+
 import Link from 'next/link';
 
 export const Header = () => {
+  const [input, setInput] = useState('');
+
+  const genre = ['Comedy', 'Sci-fi', 'Horror', 'Thriller'];
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark Header">
@@ -25,10 +31,30 @@ export const Header = () => {
                 <a className="nav-link">Home</a>
               </Link>
             </li>
-            <li className="nav-item active">
-              <Link href="/genres">
-                <a className="nav-link">Genres</a>
-              </Link>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle active"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+                Genre
+              </a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                {genre.map((genreItem) => (
+                  <>
+                    <Link href={`/genre/${genreItem.toLocaleLowerCase()}`}>
+                      <a className="dropdown-item">{genreItem}</a>
+                    </Link>
+                  </>
+                ))}
+                <div className="dropdown-divider"></div>
+                <Link href="/genre">
+                  <a className="dropdown-item">Browse all genre</a>
+                </Link>
+              </div>
             </li>
 
             <li className="nav-item active">
@@ -55,12 +81,15 @@ export const Header = () => {
               type="search"
               placeholder="Search"
               aria-label="Search"
+              onChange={(e) => setInput(e.target.value)}
             />
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="submit">
-              Search
-            </button>
+            <Link href={'/search/' + input}>
+              <button
+                className="btn btn-outline-success my-2 my-sm-0"
+                type="submit">
+                Search
+              </button>
+            </Link>
           </form>
         </div>
       </nav>
