@@ -25,6 +25,20 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 server.set('trust proxy', true);
 
+server.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_URL);
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+  );
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-Requested-With,content-type'
+  );
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
 // Init database handler
 if (process.env.DATABASE_URL) {
   mongoose.connect(process.env.DATABASE_URL, {

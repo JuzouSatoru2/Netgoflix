@@ -11,6 +11,8 @@ router.post('/', (req, res) => {
     movie.usk = req.body.usk;
     movie.genre = req.body.genre;
     movie.isSerie = req.body.isSerie;
+    movie.username = req.body.username;
+    movie.description = req.body.description;
     movie = movie.save();
     res.json('Posted movie');
   } catch (e) {
@@ -23,7 +25,7 @@ router.get('/', async (req, res) => {
   const movie = await Movies.find().sort({
     createdAt: 'desc',
   });
-  res.json(movie);
+  res.status(200).json(movie);
 });
 
 router.get('/:id', async (req, res) => {
@@ -45,6 +47,8 @@ router.put('/:id', async (req, res) => {
     movie.usk = req.body.usk;
     movie.genre = req.body.genre;
     movie.isSerie = req.body.isSerie;
+    movie.username = req.body.username;
+    movie.description = req.body.description;
     movie = movie.save();
     res.json('Put movie');
   } catch (e) {
@@ -60,6 +64,8 @@ router.patch('/:id', async (req, res) => {
     movie.usk = req.body.usk;
     movie.genre = req.body.genre;
     movie.isSerie = req.body.isSerie;
+    movie.username = req.body.username;
+    movie.description = req.body.description;
     movie = movie.save();
     res.json('Patched movie');
   } catch (e) {

@@ -21,6 +21,14 @@ const movieSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  username: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model('Movie', movieSchema);
