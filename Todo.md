@@ -2,22 +2,32 @@
 
 ## Frontend
 
+### Pages
+
 - [X] Main page
-- [X] Genres page
+- [X] Genres page (+Genre search page)
+- [X] Search page
 - [ ] Favourites page (Handle favourites via localstorage)
 - [ ] User (Register + Login page)
 
-- [X] Searchfunction (+Search results page)
+### Style and functionality
+
+- [X] Searchfunction
 - [X] Nprogress
 - [X] Meta information
 - [ ] Styles
 
 ## Backend
 
-- [X] REST API (CRUD movies)
-- [X] Datenbank (Handles CRUD of movies + User)
-- [X] Genres API
+### REST APIs (CRUD)
+
+- [X] Movie
+- [X] Genre
 - [X] User (Register + Login) API
+
+### Style and functionality
+
+- [X] Datenbank (Handles CRUD of movies + user)
 
 ## Else
 
