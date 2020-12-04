@@ -1,29 +1,38 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 
-import { Layout } from '../components/Layout';
+import { Layout } from '../../components/Layout';
 
-function Index() {
+function GenreSlug() {
   const [data, setData] = useState(null);
   const [hasError, sethasError] = useState(false);
 
+  const router = useRouter();
+  const { slug } = router.query;
+
   useEffect(() => {
-    axios
-      .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/movie`, {
-        responseType: 'json',
-      })
-      .catch((err) => {
-        sethasError(true);
-      })
-      .then((res) => {
-        setData(res.data);
-      });
-  }, []);
+    const fetchData = async () => {
+      await axios
+        .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/genre/${slug}`, {
+          responseType: 'json',
+        })
+        .catch((err) => {
+          sethasError(true);
+        })
+        .then((response) => {
+          setData(response.data);
+        });
+    };
+    if (slug) {
+      fetchData();
+    }
+  }, [slug]);
 
   if (hasError) {
     return (
-      <Layout>
-        <h1>Browse movies</h1>
+      <Layout title="Genre">
+        <h1>Browse {slug}</h1>
         <p>Failed to load movie</p>
       </Layout>
     );
@@ -31,8 +40,8 @@ function Index() {
 
   if (!data) {
     return (
-      <Layout>
-        <h1>Browse movies</h1>
+      <Layout title="Genre">
+        <h1>Browse {slug}</h1>
         <div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
         </div>
@@ -41,8 +50,8 @@ function Index() {
   }
 
   return (
-    <Layout>
-      <h1>Browse movies</h1>
+    <Layout title="Genre">
+      <h1>Browse {slug}</h1>
       <div className="row">
         {data.map((dataSet) => (
           <div className="col" key={dataSet._id}>
@@ -94,4 +103,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default GenreSlug;

@@ -2,8 +2,8 @@
 
 ## Frontend
 
-- [ ] Main page
-- [ ] Genres page
+- [X] Main page
+- [X] Genres page
 - [ ] Favourites page (Handle favourites via localstorage)
 - [ ] User (Register + Login page)
 
