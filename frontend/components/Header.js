@@ -65,10 +65,10 @@ export const Header = () => {
           </ul>
 
           <span className="navbar-text">
-              <Link href="/login">
-                <a className="nav-link login">Login</a>
-              </Link>
-            </span>
+            <Link href="/login">
+              <a className="nav-link login">Login</a>
+            </Link>
+          </span>
 
           <form className="form-inline my-2 my-lg-0">
             <input
@@ -89,9 +89,9 @@ export const Header = () => {
         </div>
       </nav>
       <style jsx>{`
-      .login {
-        padding-left: 0;
-      }
+        .login {
+          padding-left: 0;
+        }
       `}</style>
     </>
   );

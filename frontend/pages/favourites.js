@@ -34,7 +34,7 @@ function Favourites() {
 
   if (hasError) {
     return (
-      <Layout>
+      <Layout title="Favourites">
         <h1>Browse favourites</h1>
         <p>Failed to load movies</p>
       </Layout>
@@ -43,7 +43,7 @@ function Favourites() {
 
   if (!data) {
     return (
-      <Layout>
+      <Layout title="Favourites">
         <h1>Browse favourites</h1>
         <div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
@@ -53,7 +53,7 @@ function Favourites() {
   }
 
   return (
-    <Layout>
+    <Layout title="Favourites">
       <h1>Browse favourites</h1>
       <Movies data={data}></Movies>
       <style jsx>{`
