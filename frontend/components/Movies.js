@@ -47,7 +47,7 @@ export const Movies = ({ data }) => {
       <style jsx>{`
         .card {
           width: 18rem;
-          margin: 1%;
+          margin: 3%;
           min-height: 20rem;
         }
 

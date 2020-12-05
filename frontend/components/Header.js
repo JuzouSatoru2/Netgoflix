@@ -58,23 +58,18 @@ export const Header = () => {
             </li>
 
             <li className="nav-item active">
-              <Link href="/login">
-                <a className="nav-link">Login</a>
-              </Link>
-            </li>
-
-            <li className="nav-item active">
-              <Link href="/register">
-                <a className="nav-link">Register</a>
-              </Link>
-            </li>
-
-            <li className="nav-item active">
               <Link href="/favourites">
                 <a className="nav-link">Favourites</a>
               </Link>
             </li>
           </ul>
+
+          <span className="navbar-text">
+              <Link href="/login">
+                <a className="nav-link login">Login</a>
+              </Link>
+            </span>
+
           <form className="form-inline my-2 my-lg-0">
             <input
               className="form-control mr-sm-2"
@@ -93,6 +88,11 @@ export const Header = () => {
           </form>
         </div>
       </nav>
+      <style jsx>{`
+      .login {
+        padding-left: 0;
+      }
+      `}</style>
     </>
   );
 };
