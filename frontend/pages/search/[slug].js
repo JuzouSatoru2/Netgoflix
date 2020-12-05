@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 
 import { Layout } from '../../components/Layout';
+import { Movies } from '../../components/Movies';
 
 function Index() {
   const router = useRouter();
@@ -41,7 +42,7 @@ function Index() {
     return (
       <Layout title="Search">
         <h1>Search: {slug}</h1>
-        <p>Failed to load movie</p>
+        <p>Failed to load movies</p>
       </Layout>
     );
   }
@@ -69,51 +70,10 @@ function Index() {
   return (
     <Layout title="Search">
       <h1>Search {slug}</h1>
-      <div className="row">
-        {data.map((dataSet) => (
-          <div className="col" key={dataSet._id}>
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">{dataSet.name}</h5>
-                <h6 className="card-subtitle mb-2 isSerie">
-                  {dataSet.isSerie === true ? 'Serie' : 'Movie'}
-                </h6>
-                <h6 className="card-subtitle mb-2 text-muted">
-                  Date: {dataSet.date}
-                </h6>
-                <h6 className="card-subtitle mb-2 text-muted">
-                  Usk: {dataSet.usk}
-                </h6>
-                <h6 className="card-subtitle mb-2 text-muted">
-                  Genre: {dataSet.genre}
-                </h6>
-                <h6 className="card-subtitle mb-2 text-muted">
-                  Added by {dataSet.username}
-                </h6>
-                <p className="card-text">{dataSet.description}</p>
-                <a href="#" className="card-link">
-                  Add to favs
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <Movies data={data}></Movies>
       <style jsx>{`
         h1 {
           margin: 10px;
-        }
-
-        .card {
-          width: 18rem;
-          margin: 1%;
-          min-height: 20rem;
-        }
-
-        .card-title,
-        .card-text,
-        .isSerie {
-          color: #000;
         }
       `}</style>
     </Layout>

@@ -5,9 +5,10 @@
 ### Pages
 
 - [X] Main page
+- [ ] Add, Edit, Remove movie pages
 - [X] Genres page (+Genre search page)
 - [X] Search page
-- [ ] Favourites page (Handle favourites via localstorage)
+- [X] Favourites page (Handle favourites via localstorage)
 - [ ] User (Register + Login page)
 
 ### Style and functionality

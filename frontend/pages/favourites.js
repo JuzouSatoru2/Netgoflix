@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Layout } from '../components/Layout';
 import { Movies } from '../components/Movies';
 
-function Index() {
+function Favourites() {
   const [data, setData] = useState(null);
   const [hasError, sethasError] = useState(false);
 
@@ -17,14 +17,25 @@ function Index() {
         sethasError(true);
       })
       .then((res) => {
-        setData(res.data);
+        const currentFavourites = localStorage.getItem('favourites');
+        const filteredData = [];
+        res.data.map((filteredItem) => {
+          if (
+            currentFavourites
+              .toLowerCase()
+              .includes(filteredItem.name.toLowerCase())
+          ) {
+            filteredData.push(filteredItem);
+          }
+        });
+        setData(filteredData);
       });
   }, []);
 
   if (hasError) {
     return (
       <Layout>
-        <h1>Browse movies</h1>
+        <h1>Browse favourites</h1>
         <p>Failed to load movies</p>
       </Layout>
     );
@@ -33,7 +44,7 @@ function Index() {
   if (!data) {
     return (
       <Layout>
-        <h1>Browse movies</h1>
+        <h1>Browse favourites</h1>
         <div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
         </div>
@@ -43,7 +54,7 @@ function Index() {
 
   return (
     <Layout>
-      <h1>Browse movies</h1>
+      <h1>Browse favourites</h1>
       <Movies data={data}></Movies>
       <style jsx>{`
         h1 {
@@ -54,4 +65,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default Favourites;
