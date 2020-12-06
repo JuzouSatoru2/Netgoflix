@@ -1,9 +1,0 @@
-https://chakra-ui.com/
-
-https://mongoosejs.com/docs/guide.html
-
-https://getbootstrap.com/docs/4.5/getting-started/introduction/
-
-https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering
-
-https://github.com/marketplace/actions/vercel-action

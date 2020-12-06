@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+
 import axios from 'axios';
 
 import { Layout } from '../../components/Layout';
@@ -21,8 +22,8 @@ function GenreSlug() {
         .catch((err) => {
           sethasError(true);
         })
-        .then((response) => {
-          setData(response.data);
+        .then((res) => {
+          setData(res.data);
         });
     };
     if (slug) {

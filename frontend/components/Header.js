@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import Link from 'next/link';
 
 export const Header = () => {
@@ -45,7 +44,7 @@ export const Header = () => {
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 {genre.map((genreItem) => (
                   <>
-                    <Link href={`/genre/${genreItem.toLocaleLowerCase()}`}>
+                    <Link href={`/genre/${genreItem.toLowerCase()}`}>
                       <a className="dropdown-item">{genreItem}</a>
                     </Link>
                   </>

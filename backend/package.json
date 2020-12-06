@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "NODE_ENV=production",
+    "start": "NODE_ENV=production node server.js",
     "lint": "eslint server.js lib/*.js models/*.js routes/*.js",
     "format": "prettier --write server.js lib/*.js models/*.js routes/*.js"
   },

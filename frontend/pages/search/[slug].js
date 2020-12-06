@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+
 import axios from 'axios';
 
 import { Layout } from '../../components/Layout';
 import { Movies } from '../../components/Movies';
 
-function Index() {
+function searchSlug() {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -41,7 +42,7 @@ function Index() {
   if (hasError) {
     return (
       <Layout title="Search">
-        <h1>Search: {slug}</h1>
+        <h1>Search {slug}</h1>
         <p>Failed to load movies</p>
       </Layout>
     );
@@ -51,7 +52,7 @@ function Index() {
     if (notFound) {
       return (
         <Layout title="Search">
-          <h1>Search: {slug}</h1>
+          <h1>Search {slug}</h1>
           <p>No results found</p>
         </Layout>
       );
@@ -59,7 +60,7 @@ function Index() {
 
     return (
       <Layout title="Search">
-        <h1>Search: {slug}</h1>
+        <h1>Search {slug}</h1>
         <div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
         </div>
@@ -80,4 +81,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default searchSlug;
