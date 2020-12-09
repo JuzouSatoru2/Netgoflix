@@ -1,10 +1,21 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-export const Header = () => {
+import cookies from 'js-cookie';
+import { useAuth } from '../hooks/useAuth';
+
+export const Header = ({ auth = false }) => {
+  const router = useRouter();
   const [input, setInput] = useState('');
+  const [authenticated, username] = useAuth();
 
   const genre = ['Comedy', 'Sci-fi', 'Horror', 'Thriller'];
+
+  function logout() {
+    cookies.remove('netgoflix');
+    router.reload();
+  }
 
   return (
     <>
@@ -42,12 +53,12 @@ export const Header = () => {
                 Genre
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                {genre.map((genreItem) => (
-                  <>
+                {genre.map((genreItem, index) => (
+                  <div key={index}>
                     <Link href={`/genre/${genreItem.toLowerCase()}`}>
                       <a className="dropdown-item">{genreItem}</a>
                     </Link>
-                  </>
+                  </div>
                 ))}
                 <div className="dropdown-divider"></div>
                 <Link href="/genre">
@@ -64,9 +75,22 @@ export const Header = () => {
           </ul>
 
           <span className="navbar-text">
-            <Link href="/login">
-              <a className="nav-link login">Login</a>
-            </Link>
+            {authenticated === false && (
+              <Link href="/login">
+                <a className="nav-link login">Login</a>
+              </Link>
+            )}
+            {authenticated === true && (
+              <a
+                href="#"
+                className="nav-link login"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Click to logout"
+                onClick={logout}>
+                {username}
+              </a>
+            )}
           </span>
 
           <form className="form-inline my-2 my-lg-0">

@@ -9,7 +9,7 @@
 - [X] Genres page (+Genre search page)
 - [X] Search page
 - [X] Favourites page (Handle favourites via localstorage)
-- [ ] User (Register + Login page)
+- [X] User (Register + Login page)
 
 ### Style and functionality
 
@@ -33,3 +33,4 @@
 ## Else
 
 - [X] Github workflow
+- [ ] Dockerization (+Composing)

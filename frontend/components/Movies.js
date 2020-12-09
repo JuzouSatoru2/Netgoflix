@@ -34,6 +34,9 @@ export const Movies = ({ data }) => {
                 Genre: {dataSet.genre}
               </h6>
               <h6 className="card-subtitle mb-2 text-muted">
+                Duration: {dataSet.duration} in min
+              </h6>
+              <h6 className="card-subtitle mb-2 text-muted">
                 Added by {dataSet.username}
               </h6>
               <p className="card-text">{dataSet.description}</p>
