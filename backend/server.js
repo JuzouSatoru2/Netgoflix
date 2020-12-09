@@ -3,6 +3,7 @@ const express = require('express');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 
@@ -19,6 +20,7 @@ const verifyRoutes = require('./routes/verifyRoutes');
 // Init Server
 const server = express();
 server.use(helmet());
+server.use(cors());
 server.use(compression());
 server.use(morgan('dev'));
 server.use(bodyParser.json());
