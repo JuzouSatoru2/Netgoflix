@@ -59,11 +59,11 @@ function Login() {
       />
       <form className="col-md-4 col-md-offset-4">
         <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Email address</label>
+          <label htmlFor="InputEmail">Email address</label>
           <input
             type="email"
             className="form-control"
-            id="exampleInputEmail1"
+            id="InputEmail"
             aria-describedby="emailHelp"
             onChange={(event) => setEmail(event.target.value)}
           />
@@ -72,11 +72,11 @@ function Login() {
           </small>
         </div>
         <div className="form-group">
-          <label htmlFor="exampleInputPassword1">Password</label>
+          <label htmlFor="InputPassword">Password</label>
           <input
             type="password"
             className="form-control"
-            id="exampleInputPassword1"
+            id="InputPassword"
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>

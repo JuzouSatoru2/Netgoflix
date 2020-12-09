@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
   const token = req.header('Authorization');
-  if (token.length <= 1) {
+  if (token.length <= 10) {
     return res.status(401).json({ message: 'Auth Error' });
   }
 
