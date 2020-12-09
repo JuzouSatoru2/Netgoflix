@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { Favourites } from './Favourites';
 
 export const Movies = ({ data }) => {
@@ -25,21 +27,15 @@ export const Movies = ({ data }) => {
                 {dataSet.isSerie === true ? 'Serie' : 'Movie'}
               </h6>
               <h6 className="card-subtitle mb-2 text-muted">
-                Date: {dataSet.date}
-              </h6>
-              <h6 className="card-subtitle mb-2 text-muted">
-                Usk: {dataSet.usk}
-              </h6>
-              <h6 className="card-subtitle mb-2 text-muted">
-                Genre: {dataSet.genre}
-              </h6>
-              <h6 className="card-subtitle mb-2 text-muted">
-                Duration: {dataSet.duration} in min
-              </h6>
-              <h6 className="card-subtitle mb-2 text-muted">
                 Added by {dataSet.username}
               </h6>
-              <p className="card-text">{dataSet.description}</p>
+              <Link href={'/movie/' + dataSet._id}>
+                <a>
+                  <button type="button" className="btn btn-primary">
+                    Read more
+                  </button>
+                </a>
+              </Link>
               <Favourites
                 initialState={isFavourite(dataSet.name)}
                 movieName={dataSet.name}></Favourites>
@@ -51,11 +47,14 @@ export const Movies = ({ data }) => {
         .card {
           width: 18rem;
           margin: 3%;
-          min-height: 20rem;
+          min-height: 15rem;
+        }
+
+        button {
+          margin-bottom: 1rem;
         }
 
         .card-title,
-        .card-text,
         .isSerie {
           color: #000;
         }

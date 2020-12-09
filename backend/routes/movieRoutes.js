@@ -13,6 +13,7 @@ router.post('/', (req, res) => {
     movie.isSerie = req.body.isSerie;
     movie.username = req.body.username;
     movie.description = req.body.description;
+    movie.duration = req.body.duration;
     movie = movie.save();
     res.json('Posted movie');
   } catch (e) {
@@ -49,6 +50,7 @@ router.put('/:id', async (req, res) => {
     movie.isSerie = req.body.isSerie;
     movie.username = req.body.username;
     movie.description = req.body.description;
+    movie.duration = req.body.duration;
     movie = movie.save();
     res.json('Put movie');
   } catch (e) {
@@ -66,6 +68,7 @@ router.patch('/:id', async (req, res) => {
     movie.isSerie = req.body.isSerie;
     movie.username = req.body.username;
     movie.description = req.body.description;
+    movie.duration = req.body.duration;
     movie = movie.save();
     res.json('Patched movie');
   } catch (e) {
