@@ -5,7 +5,7 @@
 ### Pages
 
 - [X] Main page
-- [ ] Add, Edit, Remove movie pages
+- [ ] Add, Show, Edit, Remove movie pages
 - [X] Genres page (+Genre search page)
 - [X] Search page
 - [X] Favourites page (Handle favourites via localstorage)
@@ -33,4 +33,4 @@
 ## Else
 
 - [X] Github workflow
-- [ ] Dockerization (+Composing)
+- [X] Dockerization (+Composing)

@@ -1,0 +1,34 @@
+version: "3"
+services:
+  nextjs:
+    container_name: frontend
+    build: ./frontend
+    restart: always
+    environment: 
+      - NEXT_PUBLIC_BACKEND_URL=http://express:3000
+    depends_on:
+      - express
+    ports:
+      - 3000:3000
+  express:
+    container_name: backend
+    build: ./backend
+    restart: always
+    environment: 
+      - DATABASE_URL=mongodb://root:admin@mongo:27017/netgoflix?authSource=admin
+      - JWT_KEY=dockercomposeString
+      - FRONTEND_URL=http://nextjs:3000
+    depends_on:
+      - mongo
+    ports:
+      - 3001:3001
+  mongo:
+    container_name: mongodb
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: netgoflix
+    ports:
+      - "27017-27019:27017-27019"
