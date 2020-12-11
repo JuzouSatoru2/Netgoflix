@@ -13,12 +13,13 @@ import { Layout } from '../../../components/Layout';
 function addMovie() {
   const router = useRouter();
 
+  const [authenticated, username, loading] = useAuth();
+
   const [name, setName] = useState('');
   const [date, setDate] = useState(null);
   const [fsk, setFsk] = useState(null);
   const [genre, setGenre] = useState('');
   const [isSerie, setIsSerie] = useState(false);
-  const [authenticated, username] = useAuth();
   const [description, setDescription] = useState('');
   const [duration, setDuration] = useState(null);
 
@@ -58,6 +59,17 @@ function addMovie() {
           progress: undefined,
         });
       });
+  }
+
+  if (loading) {
+    return (
+      <Layout title="Add">
+        <h1>Add new movie</h1>
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </Layout>
+    );
   }
 
   if (!authenticated) {

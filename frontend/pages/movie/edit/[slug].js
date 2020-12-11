@@ -14,12 +14,13 @@ function editMovie() {
   const router = useRouter();
   const { slug } = router.query;
 
+  const [authenticated, username, loading] = useAuth();
+
   const [name, setName] = useState('');
   const [date, setDate] = useState(null);
   const [fsk, setFsk] = useState(null);
   const [genre, setGenre] = useState('');
   const [isSerie, setIsSerie] = useState(false);
-  const [authenticated, username] = useAuth();
   const [description, setDescription] = useState('');
   const [duration, setDuration] = useState(null);
 
@@ -92,12 +93,23 @@ function editMovie() {
       });
   }
 
+  if (loading) {
+    return (
+      <Layout title="Edit">
+        <h1>Edit movie</h1>
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </Layout>
+    );
+  }
+
   if (!authenticated) {
     return <Error statusCode="401" title="Not authenticated"></Error>;
   }
 
   return (
-    <Layout title="Add">
+    <Layout title="Edit">
       <h1>Edit movie</h1>
       <ToastContainer
         position="top-right"

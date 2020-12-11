@@ -15,6 +15,7 @@ import cookies from 'js-cookie';
 export const useAuth = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const [username, setUsername] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -28,13 +29,15 @@ export const useAuth = () => {
         // Handle success
         setAuthenticated(true);
         setUsername(res.data.username);
+        setLoading(false);
       })
       .catch((err) => {
         // Handle error
+        setLoading(false);
       });
   }, []);
 
-  return [authenticated, username];
+  return [authenticated, username, loading];
 };
 
 export default useAuth;

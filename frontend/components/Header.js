@@ -5,10 +5,10 @@ import { useRouter } from 'next/router';
 import cookies from 'js-cookie';
 import { useAuth } from '../hooks/useAuth';
 
-export const Header = ({ auth = false }) => {
+export const Header = () => {
   const router = useRouter();
   const [input, setInput] = useState('');
-  const [authenticated, username] = useAuth();
+  const [authenticated, username, loading] = useAuth();
 
   const genre = ['Comedy', 'Sci-fi', 'Horror', 'Thriller'];
 
@@ -75,7 +75,7 @@ export const Header = ({ auth = false }) => {
           </ul>
 
           <span className="navbar-text">
-            {authenticated === false && (
+            {authenticated === false && !loading && (
               <Link href="/login">
                 <a className="nav-link login">Login</a>
               </Link>
