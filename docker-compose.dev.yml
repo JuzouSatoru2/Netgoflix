@@ -5,7 +5,7 @@ services:
     build: ./frontend
     restart: always
     environment: 
-      - NEXT_PUBLIC_BACKEND_URL=http://express:3000
+      - NEXT_PUBLIC_BACKEND_URL=http://localhost:3000
     depends_on:
       - express
     ports:
@@ -17,7 +17,7 @@ services:
     environment: 
       - DATABASE_URL=mongodb://root:admin@mongo:27017/netgoflix?authSource=admin
       - JWT_KEY=dockercomposeString
-      - FRONTEND_URL=http://nextjs:3000
+      - FRONTEND_URL=http://localhost:3000
     depends_on:
       - mongo
     ports:
