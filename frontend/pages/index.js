@@ -10,6 +10,10 @@ function Index() {
   const [hasError, sethasError] = useState(false);
 
   useEffect(() => {
+    if (!localStorage.getItem('favourites')) {
+      localStorage.setItem('favourites', '');
+    }
+
     axios
       .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/movie`, {
         responseType: 'json',

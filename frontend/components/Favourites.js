@@ -3,10 +3,6 @@ import { useState } from 'react';
 export const Favourites = ({ initialState = false, movieName }) => {
   const [isFavourite, setIsFavourite] = useState(initialState);
 
-  if (!localStorage.getItem('favourites')) {
-    localStorage.setItem('favourites', '');
-  }
-
   function addToFavourites() {
     const currentFavourites = localStorage.getItem('favourites');
     localStorage.setItem('favourites', `${currentFavourites},${movieName}`);
