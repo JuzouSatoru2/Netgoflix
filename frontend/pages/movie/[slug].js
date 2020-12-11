@@ -74,7 +74,7 @@ function searchMovie() {
         <hr className="my-4" />
         <ul className="list-group list-group-flush">
           <li className="list-group-item">Publishing date: {data.date}</li>
-          <li className="list-group-item">Usk: {data.usk}</li>
+          <li className="list-group-item">Fsk: {data.fsk}</li>
           <li className="list-group-item">Genre: {data.genre}</li>
           <li className="list-group-item">Duration: {data.duration} min</li>
           <li className="list-group-item">Added by: {data.username}</li>

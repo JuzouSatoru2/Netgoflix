@@ -16,7 +16,7 @@ function editMovie() {
 
   const [name, setName] = useState('');
   const [date, setDate] = useState(null);
-  const [usk, setUsk] = useState(null);
+  const [fsk, setFsk] = useState(null);
   const [genre, setGenre] = useState('');
   const [isSerie, setIsSerie] = useState(false);
   const [authenticated, username] = useAuth();
@@ -43,7 +43,7 @@ function editMovie() {
         .then((res) => {
           setName(res.data.name);
           setDate(res.data.date);
-          setUsk(res.data.usk);
+          setFsk(res.data.fsk);
           setGenre(res.data.genre);
           setIsSerie(res.data.isSerie);
           setDescription(res.data.description);
@@ -62,7 +62,7 @@ function editMovie() {
         {
           name: name,
           date: date,
-          usk: usk,
+          fsk: fsk,
           genre: genre,
           isSerie: isSerie,
           username: username,
@@ -138,15 +138,15 @@ function editMovie() {
             />
           </div>
           <div className="form-group col-md-6">
-            <label htmlFor="Inputusk">Usk</label>
+            <label htmlFor="Inputfsk">Fsk</label>
             <input
               type="text"
               className="form-control"
-              id="Inputusk"
-              aria-describedby="uskHelp"
-              onChange={(event) => setUsk(event.target.value)}
+              id="Inputfsk"
+              aria-describedby="fskHelp"
+              onChange={(event) => setFsk(event.target.value)}
               placeholder="6"
-              value={usk || ''}
+              value={fsk || ''}
             />
           </div>
           <div className="form-group col-md-6">

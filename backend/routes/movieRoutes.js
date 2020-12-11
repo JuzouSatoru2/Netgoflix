@@ -2,9 +2,10 @@ const express = require('express');
 const Movies = require('../models/movie');
 const router = express.Router();
 const slugify = require('slugify');
+const auth = require('../lib/auth');
 
 // Create
-router.post('/', (req, res) => {
+router.post('/', auth, (req, res) => {
   try {
     let movie = new Movies();
     const slug = slugify(req.body.name, {
@@ -13,7 +14,7 @@ router.post('/', (req, res) => {
     });
     movie.name = req.body.name;
     movie.date = req.body.date;
-    movie.usk = req.body.usk;
+    movie.fsk = req.body.fsk;
     movie.genre = req.body.genre;
     movie.isSerie = req.body.isSerie;
     movie.username = req.body.username;
@@ -49,7 +50,7 @@ router.get('/:slug', async (req, res) => {
 });
 
 // Update
-router.put('/:slug', async (req, res) => {
+router.put('/:slug', auth, async (req, res) => {
   try {
     let movie = await Movies.findOne({ slug: req.params.slug });
     const slug = slugify(req.body.name, {
@@ -58,7 +59,7 @@ router.put('/:slug', async (req, res) => {
     });
     movie.name = req.body.name;
     movie.date = req.body.date;
-    movie.usk = req.body.usk;
+    movie.fsk = req.body.fsk;
     movie.genre = req.body.genre;
     movie.isSerie = req.body.isSerie;
     movie.username = req.body.username;
@@ -72,7 +73,7 @@ router.put('/:slug', async (req, res) => {
   }
 });
 
-router.patch('/:slug', async (req, res) => {
+router.patch('/:slug', auth, async (req, res) => {
   try {
     let movie = await Movies.findOne({ slug: req.params.slug });
     const slug = slugify(req.body.name, {
@@ -81,7 +82,7 @@ router.patch('/:slug', async (req, res) => {
     });
     movie.name = req.body.name;
     movie.date = req.body.date;
-    movie.usk = req.body.usk;
+    movie.fsk = req.body.fsk;
     movie.genre = req.body.genre;
     movie.isSerie = req.body.isSerie;
     movie.username = req.body.username;
@@ -96,7 +97,7 @@ router.patch('/:slug', async (req, res) => {
 });
 
 // delete
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
   await Movies.findByIdAndDelete(req.params.id);
   res.json('Deleted movie');
 });

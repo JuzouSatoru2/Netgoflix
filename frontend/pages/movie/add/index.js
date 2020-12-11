@@ -15,7 +15,7 @@ function addMovie() {
 
   const [name, setName] = useState('');
   const [date, setDate] = useState(null);
-  const [usk, setUsk] = useState(null);
+  const [fsk, setFsk] = useState(null);
   const [genre, setGenre] = useState('');
   const [isSerie, setIsSerie] = useState(false);
   const [authenticated, username] = useAuth();
@@ -30,7 +30,7 @@ function addMovie() {
         {
           name: name,
           date: date,
-          usk: usk,
+          fsk: fsk,
           genre: genre,
           isSerie: isSerie,
           username: username,
@@ -103,13 +103,13 @@ function addMovie() {
             />
           </div>
           <div className="form-group col-md-6">
-            <label htmlFor="Inputusk">Usk</label>
+            <label htmlFor="Inputfsk">Fsk</label>
             <input
               type="text"
               className="form-control"
-              id="Inputusk"
-              aria-describedby="uskHelp"
-              onChange={(event) => setUsk(event.target.value)}
+              id="Inputfsk"
+              aria-describedby="fskHelp"
+              onChange={(event) => setFsk(event.target.value)}
               placeholder="6"
             />
           </div>
