@@ -14,7 +14,7 @@ export const Header = () => {
 
   function logout() {
     cookies.remove('netgoflix');
-    router.reload();
+    router.push('/');
   }
 
   return (
@@ -80,18 +80,32 @@ export const Header = () => {
                 <a className="nav-link login">Login</a>
               </Link>
             )}
-            {authenticated === true && (
-              <a
-                href="#"
-                className="nav-link login"
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title="Click to logout"
-                onClick={logout}>
-                {username}
-              </a>
-            )}
           </span>
+          {authenticated === true && (
+            <ul className="navbar-nav">
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle active"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  {username}
+                </a>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <Link href="/movie/add">
+                    <a className="dropdown-item">Add new movie</a>
+                  </Link>
+                  <div className="dropdown-divider"></div>
+                  <p className="dropdown-item logout" onClick={logout}>
+                    Logout
+                  </p>
+                </div>
+              </li>
+            </ul>
+          )}
 
           <form className="form-inline my-2 my-lg-0">
             <input
@@ -114,6 +128,12 @@ export const Header = () => {
       <style jsx>{`
         .login {
           padding-left: 0;
+        }
+
+        .logout {
+          color: #dc3545;
+          cursor: pointer;
+          margin-bottom: 0;
         }
       `}</style>
     </>

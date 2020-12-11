@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import axios from 'axios';
+import useAuth from '../../hooks/useAuth';
 
 import { Layout } from '../../components/Layout';
 import { Favourites } from '../../components/Favourites';
@@ -10,6 +12,7 @@ function searchMovie() {
   const router = useRouter();
   const { slug } = router.query;
 
+  const [authenticated] = useAuth();
   const [data, setData] = useState(null);
   const [hasError, sethasError] = useState(false);
 
@@ -82,6 +85,15 @@ function searchMovie() {
         <Favourites
           initialState={isFavourite(data.name)}
           movieName={data.name}></Favourites>
+        {authenticated === true && (
+          <Link href={'/movie/edit/' + slug}>
+            <a>
+              <button type="button" className="btn btn-warning">
+                Edit movie
+              </button>
+            </a>
+          </Link>
+        )}
       </div>
       <style jsx>{`
         .jumbotron {
@@ -90,6 +102,10 @@ function searchMovie() {
 
         ul {
           margin-bottom: 1rem;
+        }
+
+        .btn-warning {
+          margin-left: 1rem;
         }
       `}</style>
     </Layout>

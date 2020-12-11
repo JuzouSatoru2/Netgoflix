@@ -10,7 +10,7 @@ import cookies from 'js-cookie';
  *
  * @since      0.0.1
  *
- * @return {Array} Returns the boolean authenticated and the string username.
+ * @return {Array} Returns the authenticated (boolean) and the username (string) and loading (boolean).
  */
 export const useAuth = () => {
   const [authenticated, setAuthenticated] = useState(false);
