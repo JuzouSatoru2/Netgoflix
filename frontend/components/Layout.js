@@ -23,6 +23,7 @@ export const Layout = ({ children, title = 'Netgoflix' }) => {
 
         .content {
           color: #fff;
+          margin-bottom: 2rem;
         }
       `}</style>
     </>

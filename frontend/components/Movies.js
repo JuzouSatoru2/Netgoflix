@@ -29,7 +29,7 @@ export const Movies = ({ data }) => {
               <h6 className="card-subtitle mb-2 text-muted">
                 Added by {dataSet.username}
               </h6>
-              <Link href={'/movie/' + dataSet._id}>
+              <Link href={'/movie/' + dataSet.slug}>
                 <a>
                   <button type="button" className="btn btn-primary">
                     Read more

@@ -5,7 +5,7 @@
 ### Pages
 
 - [X] Main page
-- [ ] Add, Show, Edit, Remove movie pages
+- [X] Add, Show, Edit, Remove movie pages
 - [X] Genres page (+Genre search page)
 - [X] Search page
 - [X] Favourites page (Handle favourites via localstorage)

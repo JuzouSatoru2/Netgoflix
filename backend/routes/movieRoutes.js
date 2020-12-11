@@ -1,11 +1,16 @@
 const express = require('express');
 const Movies = require('../models/movie');
 const router = express.Router();
+const slugify = require('slugify');
 
 // Create
 router.post('/', (req, res) => {
   try {
     let movie = new Movies();
+    const slug = slugify(req.body.name, {
+      lower: true,
+      strict: true,
+    });
     movie.name = req.body.name;
     movie.date = req.body.date;
     movie.usk = req.body.usk;
@@ -14,8 +19,12 @@ router.post('/', (req, res) => {
     movie.username = req.body.username;
     movie.description = req.body.description;
     movie.duration = req.body.duration;
+    movie.slug = slug;
     movie = movie.save();
-    res.json('Posted movie');
+    res.json({
+      status: 'Posted movie',
+      slug: slug,
+    });
   } catch (e) {
     res.status(400).json('Failed posting movie');
   }
@@ -29,8 +38,8 @@ router.get('/', async (req, res) => {
   res.status(200).json(movie);
 });
 
-router.get('/:id', async (req, res) => {
-  const movie = await Movies.findById(req.params.id);
+router.get('/:slug', async (req, res) => {
+  const movie = await Movies.findOne({ slug: req.params.slug });
   if (!movie) {
     res.status(404);
   }
@@ -40,9 +49,13 @@ router.get('/:id', async (req, res) => {
 });
 
 // Update
-router.put('/:id', async (req, res) => {
+router.put('/:slug', async (req, res) => {
   try {
-    let movie = await Movies.findById(req.params.id);
+    let movie = await Movies.findOne({ slug: req.params.slug });
+    const slug = slugify(req.body.name, {
+      lower: true,
+      strict: true,
+    });
     movie.name = req.body.name;
     movie.date = req.body.date;
     movie.usk = req.body.usk;
@@ -51,16 +64,21 @@ router.put('/:id', async (req, res) => {
     movie.username = req.body.username;
     movie.description = req.body.description;
     movie.duration = req.body.duration;
+    movie.slug = slug;
     movie = movie.save();
-    res.json('Put movie');
+    res.json({ status: 'Put movie', slug: slug });
   } catch (e) {
     res.status(400).json('Failed putting movie');
   }
 });
 
-router.patch('/:id', async (req, res) => {
+router.patch('/:slug', async (req, res) => {
   try {
-    let movie = await Movies.findById(req.params.id);
+    let movie = await Movies.findOne({ slug: req.params.slug });
+    const slug = slugify(req.body.name, {
+      lower: true,
+      strict: true,
+    });
     movie.name = req.body.name;
     movie.date = req.body.date;
     movie.usk = req.body.usk;
@@ -69,8 +87,9 @@ router.patch('/:id', async (req, res) => {
     movie.username = req.body.username;
     movie.description = req.body.description;
     movie.duration = req.body.duration;
+    movie.slug = slug;
     movie = movie.save();
-    res.json('Patched movie');
+    res.json({ status: 'Patched movie', slug: slug });
   } catch (e) {
     res.status(400).json('Failed patching movie');
   }

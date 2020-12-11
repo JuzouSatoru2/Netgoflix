@@ -33,6 +33,11 @@ const movieSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  slug: {
+    type: String,
+    required: true,
+    unique: true,
+  },
 });
 
 module.exports = mongoose.model('Movie', movieSchema);
