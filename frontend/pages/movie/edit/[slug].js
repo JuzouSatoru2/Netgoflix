@@ -169,7 +169,7 @@ function editMovie() {
               id="Inputgenre"
               aria-describedby="genreHelp"
               onChange={(event) => setGenre(event.target.value)}
-              placeholder="Sci-Fi"
+              placeholder="Sci-Fi, Action, Drama"
               value={genre || ''}
             />
           </div>

@@ -133,7 +133,7 @@ function addMovie() {
               id="Inputgenre"
               aria-describedby="genreHelp"
               onChange={(event) => setGenre(event.target.value)}
-              placeholder="Sci-Fi"
+              placeholder="Sci-Fi, Action, Drama"
             />
           </div>
           <div className="form-group col-md-6">

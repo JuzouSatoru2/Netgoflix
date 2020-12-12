@@ -14,8 +14,8 @@ export const Header = () => {
 
   function logout() {
     cookies.remove('netgoflix');
-    if (router.pathname === '/')  {
-        router.reload('/');
+    if (router.pathname === '/') {
+      router.reload('/');
     } else {
       router.push('/');
     }
@@ -24,9 +24,9 @@ export const Header = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark Header">
-        <a className="navbar-brand" href="#">
-          Netgoflix
-        </a>
+        <Link href="/">
+          <a className="navbar-brand">Netgoflix</a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"

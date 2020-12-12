@@ -17,7 +17,7 @@ function Register() {
   const [valid, setValid] = useState(null);
 
   function validate(str) {
-    if(/.+@netgo.de/gm.test(str)) {
+    if (/.+@netgo.de/gm.test(str)) {
       setEmail(str);
       setValid('is-valid');
     } else {
@@ -27,34 +27,34 @@ function Register() {
 
   function submitRegister(event) {
     event.preventDefault();
-    if(valid === 'is-valid'){
-    cookies.remove('netgoflix');
+    if (valid === 'is-valid') {
+      cookies.remove('netgoflix');
 
-    axios
-      .post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/register`,
-        {
-          username: username,
-          email: email,
-          password: password,
-        },
-        { headers: { 'Content-Type': 'application/json' } }
-      )
-      .then((res) => {
-        cookies.set('netgoflix', res.data.token);
-        router.push('/');
-      })
-      .catch((err) => {
-        toast.error('Something went wrong :(', {
-          position: 'top-right',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+      axios
+        .post(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/register`,
+          {
+            username: username,
+            email: email,
+            password: password,
+          },
+          { headers: { 'Content-Type': 'application/json' } }
+        )
+        .then((res) => {
+          cookies.set('netgoflix', res.data.token);
+          router.push('/');
+        })
+        .catch((err) => {
+          toast.error('Something went wrong :(', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         });
-      });
     } else {
       toast.error('Enter a valid email', {
         position: 'top-right',
@@ -97,7 +97,7 @@ function Register() {
           <label htmlFor="exampleInputEmail1">Email address</label>
           <input
             type="email"
-            className={"form-control " + valid}
+            className={'form-control ' + valid}
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             onChange={(event) => validate(event.target.value)}
@@ -115,7 +115,7 @@ function Register() {
             onChange={(event) => setPassword(event.target.value)}
           />
           <small id="passwordHelp" className="form-text text-muted">
-          Must be 8-20 characters long.
+            Must be 8-20 characters long.
           </small>
         </div>
         <Link href="/login">

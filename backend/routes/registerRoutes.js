@@ -25,7 +25,7 @@ router.post(
     }
 
     const { username, email, password } = req.body;
-    const employeeEmail = /.+@netgo.de/gm.test(email); 
+    const employeeEmail = /.+@netgo.de/gm.test(email);
 
     if (!employeeEmail) {
       return res.status(400).json('Only for netgo employees');
