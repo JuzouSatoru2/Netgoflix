@@ -9,7 +9,7 @@ const User = require('../models/user');
 router.post(
   '/',
   [
-    check('username', 'Please Enter a Valid Username').not().isEmpty(),
+    check('username', 'Please enter a valid username').not().isEmpty(),
     check('email', 'Please enter a valid email').isEmail(),
     check('password', 'Please enter a valid password').isLength({
       min: 6,
@@ -25,13 +25,19 @@ router.post(
     }
 
     const { username, email, password } = req.body;
+    const employeeEmail = /.+@netgo.de/gm.test(email); 
+
+    if (!employeeEmail) {
+      return res.status(400).json('Only for netgo employees');
+    }
+
     try {
       let user = await User.findOne({
         email,
       });
       if (user) {
         return res.status(400).json({
-          msg: 'User Already Exists',
+          msg: 'User already exists',
         });
       }
 
@@ -69,7 +75,7 @@ router.post(
       );
     } catch (err) {
       console.log(err.message);
-      res.status(500).send('Error in Saving');
+      res.status(500).send('Error in saving');
     }
   }
 );

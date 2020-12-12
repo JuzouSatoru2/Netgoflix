@@ -10,7 +10,7 @@ router.get('/', auth, async (req, res) => {
     const user = await User.findById(req.user.id);
     res.json(user);
   } catch (e) {
-    res.send({ message: 'Error in Fetching user' });
+    res.send({ message: 'Error in fetching user' });
   }
 });
 

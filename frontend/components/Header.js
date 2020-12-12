@@ -14,7 +14,11 @@ export const Header = () => {
 
   function logout() {
     cookies.remove('netgoflix');
-    router.push('/');
+    if (router.pathname === '/')  {
+        router.reload('/');
+    } else {
+      router.push('/');
+    }
   }
 
   return (

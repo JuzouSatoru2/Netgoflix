@@ -14,9 +14,20 @@ function Register() {
   const [username, setUsername] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const [valid, setValid] = useState(null);
+
+  function validate(str) {
+    if(/.+@netgo.de/gm.test(str)) {
+      setEmail(str);
+      setValid('is-valid');
+    } else {
+      setValid('is-invalid');
+    }
+  }
 
   function submitRegister(event) {
     event.preventDefault();
+    if(valid === 'is-valid'){
     cookies.remove('netgoflix');
 
     axios
@@ -44,6 +55,17 @@ function Register() {
           progress: undefined,
         });
       });
+    } else {
+      toast.error('Enter a valid email', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   }
 
   return (
@@ -75,13 +97,13 @@ function Register() {
           <label htmlFor="exampleInputEmail1">Email address</label>
           <input
             type="email"
-            className="form-control"
+            className={"form-control " + valid}
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={(event) => validate(event.target.value)}
           />
           <small id="emailHelp" className="form-text text-muted">
-            We'll never share your email with anyone else.
+            Only for Netgo employees (@netgo.de).
           </small>
         </div>
         <div className="form-group">
@@ -92,6 +114,9 @@ function Register() {
             id="exampleInputPassword1"
             onChange={(event) => setPassword(event.target.value)}
           />
+          <small id="passwordHelp" className="form-text text-muted">
+          Must be 8-20 characters long.
+          </small>
         </div>
         <Link href="/login">
           <a>Login instead</a>
