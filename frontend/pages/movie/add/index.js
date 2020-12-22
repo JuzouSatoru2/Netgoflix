@@ -32,7 +32,7 @@ function addMovie() {
           name: name,
           date: date,
           fsk: fsk,
-          genre: genre,
+          genre: genre.toLowerCase(),
           isSerie: isSerie,
           username: username,
           description: description,
