@@ -7,8 +7,8 @@ import cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-import useAuth from '../../../hooks/useAuth';
-import { Layout } from '../../../components/Layout';
+import useAuth from '@/hooks/useAuth';
+import { Layout } from '@/components/Layout';
 
 function addMovie() {
   const router = useRouter();

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Favourites } from './Favourites';
+import { Favourites } from '@/components/Favourites';
 
 export const Movies = ({ data }) => {
   function isFavourite(movieName) {

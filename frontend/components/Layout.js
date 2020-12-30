@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
-import { Header } from './Header';
-import { Meta } from './Meta';
+import { Header } from '@/components/Header';
+import { Meta } from '@/components/Meta';
 
 export const Layout = ({ children, title = 'Netgoflix' }) => {
   return (

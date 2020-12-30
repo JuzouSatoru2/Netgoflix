@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 
 import axios from 'axios';
 
-import { Layout } from '../../components/Layout';
-import { Movies } from '../../components/Movies';
+import { Layout } from '@/components/Layout';
+import { Movies } from '@/components/Movies';
 
 function searchSlug() {
   const router = useRouter();

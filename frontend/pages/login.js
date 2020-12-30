@@ -7,7 +7,7 @@ import cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-import { Layout } from '../components/Layout';
+import { Layout } from '@/components/Layout';
 
 function Login() {
   const router = useRouter();

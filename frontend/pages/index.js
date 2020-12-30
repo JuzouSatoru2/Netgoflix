@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
-import { Layout } from '../components/Layout';
-import { Movies } from '../components/Movies';
+import { Layout } from '@/components/Layout';
+import { Movies } from '@/components/Movies';
 
 function Index() {
   const [data, setData] = useState(null);

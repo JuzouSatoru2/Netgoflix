@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import axios from 'axios';
-import useAuth from '../../hooks/useAuth';
+import useAuth from '@/hooks/useAuth';
 
-import { Layout } from '../../components/Layout';
-import { Favourites } from '../../components/Favourites';
+import { Layout } from '@/components/Layout';
+import { Favourites } from '@/components/Favourites';
 
 function searchMovie() {
   const router = useRouter();
