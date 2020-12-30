@@ -16,7 +16,7 @@
 - [X] Searchfunction
 - [X] Nprogress
 - [X] Meta information
-- [ ] Styles
+- [X] Styles
 
 ## Backend
 
